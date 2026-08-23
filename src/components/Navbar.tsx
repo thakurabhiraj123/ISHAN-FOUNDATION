@@ -23,10 +23,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
 
   return (
     <header
@@ -120,6 +116,7 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     to={link.path}
+                    onClick={() => setIsOpen(false)}
                     className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
                       isActive
                         ? 'bg-primary-50 text-primary-500 font-bold'
@@ -133,6 +130,7 @@ export default function Navbar() {
               <div className="pt-4 px-3">
                 <Link
                   to="/contact"
+                  onClick={() => setIsOpen(false)}
                   className="block w-full text-center bg-primary-500 text-white hover:bg-primary-600 py-3 rounded-full text-base font-bold shadow-md shadow-primary-500/25 transition-all duration-200"
                 >
                   Contact Us
