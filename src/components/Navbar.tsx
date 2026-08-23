@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, HeartPulse } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks } from '../data/navigation';
+import logoImg from '../assets/images/logo.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,8 +39,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <HeartPulse className="h-8 w-8 text-primary-500 group-hover:scale-110 transition-transform duration-300" />
+          <Link to="/" className="flex items-center space-x-2.5 group">
+            <img
+              src={logoImg}
+              alt="Ishaan Foundation Logo"
+              className="h-9 w-9 object-contain group-hover:scale-105 transition-transform duration-300"
+            />
             <div className="flex flex-col">
               <span className="font-heading font-extrabold text-xl tracking-tight text-[#08203E] group-hover:text-primary-500 transition-colors duration-300">
                 ISHAAN FOUNDATION

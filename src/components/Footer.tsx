@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, HeartPulse, Heart } from 'lucide-react';
+import { Mail, Phone, MapPin, Heart } from 'lucide-react';
 import { navLinks } from '../data/navigation';
+import logoImg from '../assets/images/logo.png';
 
 export default function Footer() {
   return (
@@ -10,8 +11,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Col */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2">
-              <HeartPulse className="h-8 w-8 text-emerald-500" />
+            <Link to="/" className="flex items-center space-x-2.5">
+              <img
+                src={logoImg}
+                alt="Ishaan Foundation Logo"
+                className="h-9 w-9 object-contain"
+              />
               <span className="font-heading font-extrabold text-xl tracking-tight text-white">
                 ISHAAN FOUNDATION
               </span>
@@ -82,11 +87,16 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
-                <span className="text-slate-400 leading-snug">
+                <a
+                  href="https://maps.app.goo.gl/YxGwCGSSYg2NkMiNA?g_st=aw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 leading-snug hover:text-white transition-colors"
+                >
                   Surya Nagar, Rabindra Sarani,
                   <br />
                   Jalpaiguri, West Bengal, India
-                </span>
+                </a>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-emerald-500 shrink-0" />

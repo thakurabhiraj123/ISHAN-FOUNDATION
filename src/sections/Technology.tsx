@@ -13,10 +13,10 @@ export default function Technology() {
             Modern NGO Care
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#08203E]">
-            Technology for Better Rural Healthcare
+            Technology for Community Empowerment
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
-            By leveraging portable medical devices and basic electronic patient charting solutions, we optimize detection speeds and maintain support consistency in remote villages.
+            By leveraging digital patient charting, stray rescue mapping, tailoring equipment, and travel booking portals, we optimize and scale our community outreach.
           </p>
         </div>
 

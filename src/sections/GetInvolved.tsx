@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import { HeartHandshake, Shield, Stethoscope, Ambulance } from 'lucide-react';
+import { HeartPulse, Heart, Users, Compass } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function GetInvolved() {
   const supportAreas = [
-    { title: 'Medical Camps', icon: Stethoscope, color: 'text-blue-500 bg-blue-50' },
-    { title: 'Community Health Programs', icon: Shield, color: 'text-emerald-500 bg-emerald-50' },
-    { title: 'Healthcare Equipment', icon: HeartHandshake, color: 'text-purple-500 bg-purple-50' },
-    { title: 'Emergency Support', icon: Ambulance, color: 'text-rose-500 bg-rose-50' },
+    { title: 'Healthcare Support', icon: HeartPulse, color: 'text-rose-500 bg-rose-50' },
+    { title: 'Animal Welfare Rescue', icon: Heart, color: 'text-emerald-500 bg-emerald-50' },
+    { title: 'Women Empowerment', icon: Users, color: 'text-purple-500 bg-purple-50' },
+    { title: 'Eco-Tourism Travels', icon: Compass, color: 'text-blue-500 bg-blue-50' },
   ];
 
   return (
@@ -31,10 +31,10 @@ export default function GetInvolved() {
                 Support Our Mission
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-white max-w-2xl mx-auto leading-tight">
-                Help Us Strengthen Healthcare Access
+                Help Us Make a Lasting Difference
               </h2>
               <p className="text-slate-400 text-sm max-w-xl mx-auto leading-relaxed font-medium">
-                Join our efforts to improve health awareness, screen patients, and coordinate vital clinic facilities for communities in Jalpaiguri, North Bengal.
+                Join our volunteer and community networks to drive impact across rural healthcare, street animal protection, women's skill workshops, and sustainable eco-tourism.
               </p>
             </div>
 

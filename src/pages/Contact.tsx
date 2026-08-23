@@ -113,10 +113,16 @@ export default function ContactPage() {
                   <MapPin className="h-6 w-6 text-emerald-400 shrink-0 mt-0.5" />
                   <div className="space-y-1">
                     <span className="block font-bold text-slate-200">Our Location</span>
-                    <span className="text-slate-400">
+                    <a
+                      href="https://maps.app.goo.gl/YxGwCGSSYg2NkMiNA?g_st=aw"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-400 hover:text-emerald-500 transition-colors"
+                    >
                       Surya Nagar, Rabindra Sarani,
+                      <br />
                       Jalpaiguri, West Bengal, India
-                    </span>
+                    </a>
                   </div>
                 </li>
                 
@@ -139,15 +145,20 @@ export default function ContactPage() {
                 <span className="text-emerald-600 uppercase tracking-wider text-[10px]">Location Pin</span>
               </div>
               
-              <div className="h-44 bg-gradient-to-tr from-slate-100 to-slate-200 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden border border-slate-200">
+              <a
+                href="https://maps.app.goo.gl/YxGwCGSSYg2NkMiNA?g_st=aw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-44 bg-gradient-to-tr from-slate-100 to-slate-200 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden border border-slate-200 hover:border-emerald-300 transition-colors group/map"
+              >
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:20px_20px] opacity-60" />
-                <div className="absolute w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center animate-pulse z-10">
+                <div className="absolute w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center animate-pulse z-10 group-hover/map:scale-110 transition-transform">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-600" />
                 </div>
-                <div className="z-10 mt-12 bg-white/90 border border-slate-200 px-3 py-1.5 rounded-xl shadow-sm text-[10px] font-bold text-[#08203E] text-center">
-                  Surya Nagar, Rabindra Sarani
+                <div className="z-10 mt-12 bg-white/90 border border-slate-200 px-3 py-1.5 rounded-xl shadow-sm text-[10px] font-bold text-[#08203E] text-center group-hover/map:text-emerald-600 transition-colors">
+                  Surya Nagar, Rabindra Sarani (Open Map)
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 

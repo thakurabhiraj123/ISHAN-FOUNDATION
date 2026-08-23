@@ -29,7 +29,7 @@ export default function VisionMission() {
                   OUR VISION
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed font-semibold">
-                  "To build a healthier rural India by ensuring affordable, accessible, and quality healthcare reaches every underserved community."
+                  "To build a healthier, more empowered rural community by ensuring accessible healthcare, animal welfare, women's self-reliance, and sustainable travel livelihoods reach every corner of North Bengal."
                 </p>
               </div>
             </div>
@@ -38,7 +38,7 @@ export default function VisionMission() {
               Ishaan Foundation Long-term Outlook
             </div>
           </motion.div>
-
+          
           {/* Mission Card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -60,7 +60,7 @@ export default function VisionMission() {
                   OUR MISSION
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed font-semibold">
-                  "To establish sustainable healthcare infrastructure, organize regular medical camps, improve emergency response, and empower communities through preventive healthcare and awareness."
+                  "To deliver immediate healthcare services, safeguard stray animals, empower women with professional skill development, and promote community-led eco-tourism and travel opportunities."
                 </p>
               </div>
             </div>

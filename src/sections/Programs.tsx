@@ -5,14 +5,14 @@ import { programsData } from '../data/programs';
 
 // Helper component to render beautiful custom SVG vector indicators inside the card header
 function ProgramVector({ id }: { id: string }) {
-  if (id === 'blood-donation') {
+  if (id === 'animal-rescue') {
     return (
       <svg className="absolute -right-4 -bottom-6 w-32 h-32 opacity-20 text-white animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
       </svg>
     );
   }
-  if (id === 'eye-checkup') {
+  if (id === 'tour-travels') {
     return (
       <svg className="absolute -right-4 -bottom-6 w-32 h-32 opacity-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
         <circle cx="12" cy="12" r="10" strokeDasharray="3 3" className="animate-spin-slow" style={{ transformOrigin: 'center', animationDuration: '24s' }} />
@@ -22,31 +22,14 @@ function ProgramVector({ id }: { id: string }) {
       </svg>
     );
   }
-  if (id === 'general-health') {
+  if (id === 'rural-healthcare') {
     return (
       <svg className="absolute -right-4 bottom-2 w-36 h-20 opacity-25 text-white" viewBox="0 0 100 40" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M0,20 L25,20 L30,10 L35,30 L40,6 L45,34 L50,20 L55,20 L60,15 L65,25 L70,20 L100,20" strokeLinecap="round" strokeLinejoin="round" className="animate-line-glow" />
       </svg>
     );
   }
-  if (id === 'community-medical-camps') {
-    return (
-      <svg className="absolute -right-4 -bottom-6 w-32 h-32 opacity-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-        <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="12" cy="12" r="2" fill="currentColor" />
-      </svg>
-    );
-  }
-  if (id === 'health-awareness') {
-    return (
-      <svg className="absolute -right-4 -bottom-6 w-32 h-32 opacity-20 text-white animate-float" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 9v4M12 15h.01" strokeWidth="2" strokeLinecap="round" />
-        <path d="M12 2v2M12 20v2M2 12h2M20 12h2" strokeLinecap="round" />
-      </svg>
-    );
-  }
-  if (id === 'children-activities') {
+  if (id === 'women-empowerment') {
     return (
       <svg className="absolute -right-4 -bottom-6 w-32 h-32 opacity-20 text-white animate-float" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" style={{ animationDelay: '1.5s' }}>
         <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z" fill="currentColor" />
@@ -89,7 +72,7 @@ export default function Programs() {
             Our Community Programs
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
-            By running focused community health camps, we bring direct care and screening to families, children, workers, and elderly citizens across Jalpaiguri.
+            We operate structured community programs focusing on healthcare aid, animal rescue campaigns, women's skill centers, and local eco-tourism developments across North Bengal.
           </p>
         </div>
 

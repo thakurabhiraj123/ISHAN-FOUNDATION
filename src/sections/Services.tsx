@@ -33,10 +33,10 @@ export default function Services() {
             What We Do
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#08203E]">
-            Our Healthcare Services
+            Our Core Initiatives
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
-            We deliver critical, accessible, and community-centric health solutions designed to serve families living in rural areas and tea garden estates in North Bengal.
+            We deliver dedicated community services focusing on rural healthcare, street animal welfare, women's empowerment workshops, and sustainable tour & homestay travels in North Bengal.
           </p>
         </div>
 

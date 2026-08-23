@@ -35,7 +35,7 @@ export default function Beneficiaries() {
             Who We Serve
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
-            Our initiatives are focused on providing health access and education to the most vulnerable demographics in North Bengal.
+            Our initiatives are focused on delivering healthcare, animal welfare, women's empowerment, and sustainable travel training to communities in North Bengal.
           </p>
         </div>
 

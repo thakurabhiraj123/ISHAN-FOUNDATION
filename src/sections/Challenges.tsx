@@ -36,13 +36,13 @@ export default function Challenges() {
             className="lg:col-span-5 space-y-6 lg:sticky lg:top-28 text-left"
           >
             <span className="text-sm font-bold text-red-600 uppercase tracking-widest block animate-pulse">
-              Gaps in Rural Care
+              Critical Gaps We Address
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#08203E] leading-tight">
-              Healthcare Should Reach Every Community
+              Bridging Critical Gaps in Communities
             </h2>
             <p className="text-slate-600 leading-relaxed text-sm">
-              Rural communities and tea garden workers in Jalpaiguri face critical roadblocks to basic healthcare. These gaps motivate our mission to deliver localized clinical screenings, camp organizations, and awareness programs.
+              Rural communities in Jalpaiguri face severe gaps across healthcare access, stray animal protection, women's vocational opportunities, and youth livelihoods. We focus on bridging these critical divides.
             </p>
 
             {/* Illustration Frame */}
@@ -52,10 +52,10 @@ export default function Challenges() {
               <div className="space-y-4 relative z-10">
                 <div className="flex items-center space-x-3 text-red-400 font-bold text-sm uppercase tracking-wider">
                   <Icons.AlertTriangle className="h-5 w-5 animate-bounce" style={{ animationDuration: '3s' }} />
-                  <span>Critical Care Barriers</span>
+                  <span>Core Action Gaps</span>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed font-medium">
-                  Financial barriers combined with remote geographic locations often result in delayed detection of treatable illnesses, leading to severe health complications.
+                  Lack of resources, poor veterinary response, gender disparity, and unexploited local tourism opportunities contribute to rural stagnation. We aim to address these through focused, grass-roots actions.
                 </p>
                 <div className="border-t border-slate-800 pt-3 flex justify-between items-center text-[10px] text-slate-500 font-semibold tracking-wider">
                   <span>Jalpaiguri District Survey</span>

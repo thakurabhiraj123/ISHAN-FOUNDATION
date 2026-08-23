@@ -16,7 +16,7 @@ export default function Approach() {
             Our Approach
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
-            A comprehensive, patient-centered journey that moves from initial community engagement to sustained wellness and medical emergency preparedness.
+            A holistic, community-centered journey that moves from identifying local needs to establishing sustainable health, animal welfare, and travel livelihoods.
           </p>
         </div>
 

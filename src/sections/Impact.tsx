@@ -16,7 +16,7 @@ export default function Impact() {
             Our Impact
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
-            By focusing on tangible community actions rather than funding metrics, we measure our success through localized healthcare accessibility and social wellness.
+            By focusing on tangible community actions rather than funding metrics, we measure our success through localized welfare, healthcare accessibility, animal protection, and sustainable livelihoods.
           </p>
         </div>
 

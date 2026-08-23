@@ -6,33 +6,33 @@ export interface ImpactCategory {
 
 export const impactData: ImpactCategory[] = [
   {
-    title: 'Healthcare Impact',
+    title: 'Healthcare Support',
     description: 'Direct improvement in health outcomes and access across targeted rural areas.',
     points: [
-      'Better healthcare access for remote settlements',
-      'Early disease detection through community screenings',
-      'Increased adoption of preventive healthcare measures',
-      'Reduced medical barriers and financial strain on families',
+      'Accessible mobile health screening checkups in tea gardens',
+      'Free medicine distribution and doctor consultation camps',
+      'Vital checkups (diabetes, BP, SpO2) supporting early detection',
+      'Emergency ambulance transportation coordination for rural patients',
     ],
   },
   {
-    title: 'Community Impact',
-    description: 'Fostering collective participation and local leadership for sustainable development.',
+    title: 'Welfare & Livelihood',
+    description: 'Empowering women and youth through skill training and sustainable economic platforms.',
     points: [
-      'Widespread community health and hygiene awareness',
-      'Active youth participation in local medical camps',
-      'Stronger community engagement in social health programs',
-      'Contributions to rural development and social solidarity',
+      'Vocational tailoring classes supporting female self-employment',
+      'Computer training courses to foster digital literacy',
+      'Eco-tourism and homestay training to build youth livelihoods',
+      'Community self-help savings group setup and micro-finance advice',
     ],
   },
   {
-    title: 'Quality of Life',
-    description: 'Enabling healthier, happier, and more secure lifestyles for underserved individuals.',
+    title: 'Animal Protection',
+    description: 'Rescuing injured strays and creating compassionate, rabies-free neighborhoods.',
     points: [
-      'Improved long-term healthcare access and consistency',
-      'Better personal health awareness and lifestyle choices',
-      'Timely medical support in critical emergencies',
-      'Overall enhancement of community wellbeing and security',
+      'Emergency veterinary relief and rescue walks for stray dogs and cats',
+      'Rabies vaccination drives protecting public health and street animals',
+      'Daily feeding support coordinated through local volunteers',
+      'Shelter support initiatives for abandoned or sick street animals',
     ],
   },
 ];

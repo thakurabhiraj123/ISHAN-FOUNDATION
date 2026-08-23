@@ -13,9 +13,9 @@ export const founderData: FounderInfo = {
   strengths: [
     'Community Leadership',
     'Social Service',
-    'Healthcare Vision',
+    'Welfare Vision',
     'Rural Development',
     'Project Management',
   ],
-  bio: 'Arijit Sikdar is a dedicated social worker committed to raising the standard of rural healthcare in Jalpaiguri and North Bengal. Guided by a vision of accessible medical facilities, he drives the foundation\'s efforts to organize blood donation camps, children development programs, and local healthcare campaigns.',
+  bio: 'Arijit Sikdar is a dedicated social worker committed to rural development and community welfare in Jalpaiguri and North Bengal. Guided by a holistic vision, he drives the foundation\'s efforts across healthcare camps, stray animal protection, women\'s skill workshops, and sustainable eco-tourism travel.',
 };

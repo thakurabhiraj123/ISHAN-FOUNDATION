@@ -1,6 +1,7 @@
 import { GraduationCap, Award, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { founderData } from '../data/team';
+import founderImg from '../assets/images/founder.jpg';
 
 export default function Founder() {
   const listVariants = {
@@ -27,51 +28,47 @@ export default function Founder() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
-          {/* Image/Visual Placeholder Column */}
+          {/* Image/Visual Column */}
           <div className="lg:col-span-5 flex justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.93, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[360px] h-[420px] bg-gradient-to-tr from-slate-900 via-slate-950 to-slate-900 text-white rounded-3xl shadow-2xl border border-slate-800 overflow-hidden flex flex-col justify-between p-8 group cursor-default"
+              className="relative w-full max-w-[360px] h-[480px] rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden group cursor-default"
             >
-              {/* Overlay glow */}
-              <div className="absolute top-0 right-0 w-36 h-36 bg-emerald-500/10 rounded-full blur-2xl animate-pulse-slow" />
-              <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-primary-500/5 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: '2.5s' }} />
-
-              {/* Background ECG layout */}
-              <svg className="absolute inset-0 w-full h-full opacity-10 text-emerald-500" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M0,50 L30,50 L35,25 L40,75 L45,10 L50,90 L55,50 L100,50" fill="none" stroke="currentColor" strokeWidth="0.5" />
-              </svg>
-
-              <div className="flex justify-between items-center z-10">
-                <span className="text-[9px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/25 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-widest">
+              {/* Background Image */}
+              <img
+                src={founderImg}
+                alt={founderData.name}
+                className="w-full h-full object-cover object-[center_15%] transition-transform duration-700 group-hover:scale-105"
+              />
+              
+              {/* Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+              
+              {/* Top Tags */}
+              <div className="absolute top-6 left-6 right-6 flex justify-between items-center z-10">
+                <span className="text-[10px] bg-emerald-500 text-white px-3 py-1 rounded-full font-bold uppercase tracking-widest shadow-md">
                   NGO Director
                 </span>
-                <span className="text-[9px] bg-white/10 text-slate-300 px-2.5 py-0.5 rounded-full backdrop-blur-sm tracking-wider font-semibold">
+                <span className="text-[10px] bg-black/45 text-slate-100 px-3 py-1 rounded-full backdrop-blur-md tracking-wider font-semibold border border-white/10">
                   Jalpaiguri, WB
                 </span>
               </div>
 
-              {/* Profile silhouette / medical shield emblem */}
-              <div className="flex flex-col items-center justify-center my-auto space-y-4 z-10">
-                <div className="w-24 h-24 rounded-full bg-slate-950 border-2 border-emerald-500/40 flex items-center justify-center text-emerald-400 relative overflow-hidden group shadow-xl shadow-emerald-500/5 hover:border-emerald-400 transition-all duration-300">
-                  <div className="absolute inset-0 bg-slate-900/50" />
-                  {/* Subtle rotating helper */}
-                  <div className="absolute inset-1 rounded-full border border-dashed border-emerald-500/20 animate-spin-slow" style={{ animationDuration: '30s' }} />
-                  <IconsWrapper />
-                </div>
+              {/* Bottom Card Information */}
+              <div className="absolute bottom-6 left-6 right-6 bg-slate-950/75 border border-white/10 backdrop-blur-md p-6 rounded-2xl text-center z-10 hover:bg-slate-950/85 transition-all duration-300">
                 <div className="text-center space-y-1">
-                  <h3 className="font-heading font-extrabold text-2xl group-hover:text-emerald-400 transition-colors duration-300">{founderData.name}</h3>
+                  <h3 className="font-heading font-extrabold text-2xl text-white group-hover:text-emerald-400 transition-colors duration-300">
+                    {founderData.name}
+                  </h3>
                   <p className="text-emerald-400 text-[10px] font-extrabold tracking-widest uppercase">
                     {founderData.role}
                   </p>
                 </div>
-              </div>
-
-              <div className="bg-black/35 p-4 rounded-2xl border border-white/5 backdrop-blur-sm text-center z-10 hover:bg-black/45 transition-colors">
-                <div className="flex items-center justify-center space-x-2 text-xs font-bold text-slate-300">
+                
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-center space-x-2 text-xs font-bold text-slate-300">
                   <GraduationCap className="h-4.5 w-4.5 text-emerald-400" />
                   <span>Qualification: {founderData.qualification}</span>
                 </div>
@@ -154,24 +151,4 @@ export default function Founder() {
   );
 }
 
-// Custom styled vector profile icon helper to show a professional leadership shield
-function IconsWrapper() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="44"
-      height="44"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="relative z-10 text-emerald-400 group-hover:scale-110 transition-transform duration-300"
-    >
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-      <path d="M8 14s1.5-2 4-2 4 2 4 2" strokeWidth="1" opacity="0.7" />
-    </svg>
-  );
-}
+

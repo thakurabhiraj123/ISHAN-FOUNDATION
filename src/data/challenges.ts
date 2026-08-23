@@ -7,39 +7,27 @@ export interface ChallengeItem {
 
 export const challengesData: ChallengeItem[] = [
   {
-    id: 'expensive-treatment',
-    title: 'Expensive Medical Treatment',
-    description: 'High costs of modern private medical consultation, tests, and medicine put basic healthcare out of reach for daily wage earners.',
-    iconName: 'IndianRupee',
-  },
-  {
-    id: 'lack-diagnostics',
-    title: 'Lack of Diagnostic Centres',
-    description: 'Remote locations lack basic testing centers, forcing villagers to travel long distances just to get a routine blood test or ECG.',
-    iconName: 'Building',
-  },
-  {
-    id: 'poor-ambulance',
-    title: 'Poor Ambulance Availability',
-    description: 'During medical emergencies, families struggle to secure timely transport, leading to avoidable delays in reaching critical care.',
-    iconName: 'ShieldAlert',
-  },
-  {
-    id: 'delayed-diagnosis',
-    title: 'Delayed Diagnosis',
-    description: 'Due to lack of local facilities and cost barriers, symptoms are often ignored until the condition becomes severe or untreatable.',
-    iconName: 'Clock',
-  },
-  {
-    id: 'limited-prevention',
-    title: 'Limited Preventive Healthcare',
-    description: 'A general lack of screening camps and health awareness means chronic illnesses like hypertension and diabetes go undetected.',
+    id: 'healthcare-gaps',
+    title: 'Rural Healthcare Disparity',
+    description: 'High medical costs and distant clinics prevent families in remote blocks from accessing basic healthcare.',
     iconName: 'HeartCrack',
   },
   {
-    id: 'healthcare-inequality',
-    title: 'Healthcare Inequality',
-    description: 'Rural villages and tea garden communities experience a massive disparity in quality healthcare options compared to urban centers.',
-    iconName: 'TrendingDown',
+    id: 'animal-neglect',
+    title: 'Stray Animal Suffering',
+    description: 'Street dogs and cats face high rates of injuries, rabies, and neglect without veterinary access or shelter.',
+    iconName: 'ShieldAlert',
+  },
+  {
+    id: 'women-inequality',
+    title: 'Limited Women Livelihoods',
+    description: 'Rural women struggle to find vocational training or micro-financial pathways to secure economic independence.',
+    iconName: 'Users',
+  },
+  {
+    id: 'tourism-unexploited',
+    title: 'Untapped Tourism Potential',
+    description: 'Local youth lack professional training to tap into North Bengal\'s rich eco-tourism, leading to unemployment.',
+    iconName: 'Compass',
   },
 ];

@@ -68,10 +68,16 @@ export default function Contact() {
                   <MapPin className="h-6 w-6 text-emerald-400 shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
                   <div className="space-y-1">
                     <span className="block font-bold text-slate-200">Our Address</span>
-                    <span className="text-slate-400 leading-relaxed text-xs font-medium">
+                    <a
+                      href="https://maps.app.goo.gl/YxGwCGSSYg2NkMiNA?g_st=aw"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-400 leading-relaxed text-xs font-medium hover:text-emerald-400 transition-colors"
+                    >
                       Surya Nagar, Rabindra Sarani,
+                      <br />
                       Jalpaiguri, West Bengal, India
-                    </span>
+                    </a>
                   </div>
                 </li>
                 
@@ -104,7 +110,12 @@ export default function Contact() {
                 <span className="text-emerald-600 uppercase tracking-wider text-[10px]">Location Pin</span>
               </div>
               
-              <div className="h-44 bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden border border-slate-800 shadow-inner group cursor-default">
+              <a
+                href="https://maps.app.goo.gl/YxGwCGSSYg2NkMiNA?g_st=aw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-44 bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden border border-slate-800 shadow-inner group/map cursor-pointer hover:border-emerald-500/30 transition-colors duration-300"
+              >
                 {/* Glowing decorative rings representing location coverage */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-emerald-500/10 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-emerald-500/20 rounded-full animate-pulse-slow" />
@@ -117,13 +128,13 @@ export default function Contact() {
                   <line x1="50" y1="0" x2="50" y2="100" stroke="currentColor" strokeWidth="0.5" />
                 </svg>
 
-                <div className="absolute w-8 h-8 rounded-full bg-emerald-500/25 border-2 border-emerald-500 flex items-center justify-center animate-pulse z-10 shadow-lg shadow-emerald-500/30">
+                <div className="absolute w-8 h-8 rounded-full bg-emerald-500/25 border-2 border-emerald-500 flex items-center justify-center animate-pulse z-10 shadow-lg shadow-emerald-500/30 group-hover/map:scale-110 transition-transform duration-300">
                   <div className="w-3 h-3 rounded-full bg-emerald-400 animate-heartbeat" />
                 </div>
-                <div className="z-10 mt-16 bg-slate-900/90 border border-slate-700/50 px-3.5 py-1.5 rounded-xl shadow-md text-[9px] font-bold text-emerald-400 tracking-wider text-center uppercase backdrop-blur-sm group-hover:scale-105 transition-transform duration-300">
-                  Surya Nagar, Rabindra Sarani
+                <div className="z-10 mt-16 bg-slate-900/90 border border-slate-700/50 px-3.5 py-1.5 rounded-xl shadow-md text-[9px] font-bold text-emerald-400 tracking-wider text-center uppercase backdrop-blur-sm group-hover/map:scale-105 transition-transform duration-300">
+                  Surya Nagar, Rabindra Sarani (Open Map)
                 </div>
-              </div>
+              </a>
             </div>
           </motion.div>
 

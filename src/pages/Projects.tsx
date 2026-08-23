@@ -25,7 +25,7 @@ export default function ProjectsPage() {
             Projects & Initiatives
           </h1>
           <p className="text-slate-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            Transparency is our core standard. Review our completed foundational milestones and our detailed future healthcare plans.
+            Transparency is our core standard. Review our completed foundational milestones and our detailed future action plans.
           </p>
         </div>
       </div>

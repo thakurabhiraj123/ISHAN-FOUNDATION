@@ -14,10 +14,10 @@ export default function ServicesPage() {
             Our Offerings
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold font-heading text-white">
-            Healthcare Services
+            Our Core Initiatives
           </h1>
           <p className="text-slate-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            From primary doctor checkups to vision correction and emergency transfers, explore how we serve regional health needs.
+            From rural doctor checkups to stray animal rescue, tailoring training, and homestay travel development, explore our core initiatives.
           </p>
         </div>
       </div>

@@ -5,10 +5,10 @@ import Beneficiaries from '../sections/Beneficiaries';
 
 export default function AboutPage() {
   const objectives = [
-    'Create and run primary clinical assistance hubs in remote sectors.',
-    'Build reliable connections between patients and regional blood collection banks.',
-    'Deliver pediatric eye and screening camps for rural students.',
-    'Equip local medical volunteers with diagnostic kits and health toolkits.',
+    'Deliver accessible health screenings, medical consultations, and first-aid kits.',
+    'Rescue injured stray animals, host stray vaccinations, and support shelters.',
+    'Provide tailoring, handcraft, and digital courses to empower rural women.',
+    'Train local youth in eco-tourism, community homestays, and hospitality skills.',
   ];
 
   return (
@@ -25,7 +25,7 @@ export default function AboutPage() {
             About ISHAAN FOUNDATION
           </h1>
           <p className="text-slate-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            A committed healthcare and community development NGO based in Jalpaiguri, West Bengal, aiming to build a healthier rural India.
+            A committed NGO based in Jalpaiguri, West Bengal, focused on rural healthcare, street animal welfare, women's empowerment, and eco-tourism.
           </p>
         </div>
       </div>
@@ -35,13 +35,13 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-[#08203E]">
-              Dedicated to Rural Health Accessibility
+              Dedicated to Healthcare, Animal Welfare, Women, & Sustainable Travel
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Founded under the leadership of Arijit Sikdar, ISHAAN FOUNDATION acts as a local support channel for families, plantation laborers, and tea garden workers in Jalpaiguri. Our operations are centered on Surya Nagar, Rabindra Sarani, where we organize local blood donation camps, drawing competitions for kids, and primary medical assessments.
+              Founded under the leadership of Arijit Sikdar, ISHAAN FOUNDATION acts as a local support channel for families, plantation laborers, and tea garden workers in Jalpaiguri. Our operations are centered on Surya Nagar, Rabindra Sarani, where we organize local medical checkups, stray animal rescue drives, tailoring training for women, and eco-tourism hospitality courses.
             </p>
             <p className="text-sm text-slate-600 leading-relaxed">
-              We focus on solving the root causes of health inequalities in rural Bengal, specifically the high cost of consultation, remote locations of diagnostic tests, and lack of emergency ambulance networks.
+              We focus on solving the root causes of rural stagnation in Bengal, specifically healthcare disparities, street animal neglect, lack of female vocational training, and underutilized eco-tourism opportunities.
             </p>
             <div className="space-y-3 pt-2">
               <h3 className="font-heading font-bold text-sm text-[#08203E]">NGO Objectives:</h3>
@@ -65,11 +65,18 @@ export default function AboutPage() {
             <div className="z-10 space-y-2">
               <p className="text-xs text-emerald-300 font-bold uppercase tracking-wider">Jalpaiguri HQ</p>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Our team is made of community volunteers, local youth coordinators, and social activists dedicated to rural healthcare vision and community lead development.
+                Our team is made of community volunteers, animal welfare activists, youth coordinators, and social workers dedicated to rural healthcare, stray animal rescue, women's self-reliance, and sustainable travel.
               </p>
             </div>
             <div className="border-t border-slate-800 pt-4 text-[10px] text-slate-500 z-10">
-              Surya Nagar, Rabindra Sarani, Jalpaiguri, WB, India
+              <a
+                href="https://maps.app.goo.gl/YxGwCGSSYg2NkMiNA?g_st=aw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-emerald-400 transition-colors"
+              >
+                Surya Nagar, Rabindra Sarani, Jalpaiguri, WB, India
+              </a>
             </div>
           </div>
         </div>

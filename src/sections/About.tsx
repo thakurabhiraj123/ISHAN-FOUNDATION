@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   const focusAreas = [
-    'Primary Healthcare Services',
-    'Preventive Healthcare & Screenings',
-    'Diagnostic Services & Early Detection',
-    'Emergency Ambulance Support',
-    'Community Health Awareness',
-    'Local Medical & Eye Camps',
+    'Rural Healthcare Services',
+    'Street Animal Welfare & Rescue',
+    'Women Skill Centers & Vocational Aid',
+    'Eco-Tourism & Sustainable Travels',
+    'Emergency Health & Veterinary Camps',
+    'Community Livelihood Workshops',
   ];
 
   const listVariants = {
@@ -60,7 +60,7 @@ export default function About() {
                   <div>
                     <h3 className="font-heading font-extrabold text-xl text-white">Our Commitments</h3>
                     <p className="text-xs text-slate-400 mt-2 leading-relaxed font-semibold">
-                      We operate within Jalpaiguri, West Bengal, delivering health screening support, emergency ambulance availability, and diagnostic initiatives.
+                      We operate within Jalpaiguri, West Bengal, delivering health screening support, stray animal rescue, women's skill training, and eco-tourism travel promotions.
                     </p>
                   </div>
 
@@ -75,7 +75,7 @@ export default function About() {
                     </div>
                     <div className="flex justify-between items-center text-xs font-semibold">
                       <span className="text-slate-400">Core Mission</span>
-                      <span className="font-bold text-emerald-400">Rural Health Access</span>
+                      <span className="font-bold text-emerald-400">Community Welfare</span>
                     </div>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function About() {
                 About Our Foundation
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#08203E]">
-                Healthcare With a Community at Heart
+                Community Welfare With a Mission at Heart
               </h2>
             </motion.div>
 
@@ -107,7 +107,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-slate-600 leading-relaxed text-sm font-medium"
             >
-              ISHAAN FOUNDATION is a non-governmental organization based in Surya Nagar, Jalpaiguri, West Bengal. We are committed to improving healthcare accessibility and community development for underserved and rural populations. By bridging geographical and economic gaps, we bring active health screenings, campaigns, and emergency support services to local areas.
+              ISHAAN FOUNDATION is a non-governmental organization based in Surya Nagar, Jalpaiguri, West Bengal. We are committed to improving local lives and rural development. By bridging geographical and economic gaps, we drive progress across rural healthcare, street animal protection, women's skill empowerment, and sustainable eco-tourism travels.
             </motion.p>
             
             <motion.p
@@ -117,7 +117,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-slate-600 leading-relaxed text-sm font-medium"
             >
-              Our core vision is centered around raising awareness and empowering local communities. We believe that everyone should have access to reliable diagnostic services, preventive healthcare, and immediate emergency medical support.
+              Our core vision is centered around raising awareness and empowering local communities. We believe in providing reliable healthcare, rescuing strays, fostering self-reliance for women, and creating hospitality jobs for local youth.
             </motion.p>
 
             <motion.div
