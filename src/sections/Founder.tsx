@@ -35,7 +35,7 @@ export default function Founder() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[360px] h-[480px] rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden group cursor-default"
+              className="relative w-full max-w-[360px] aspect-[3/4] sm:aspect-auto sm:h-[480px] rounded-3xl shadow-2xl border border-slate-200/80 overflow-hidden group cursor-default"
             >
               {/* Background Image */}
               <img

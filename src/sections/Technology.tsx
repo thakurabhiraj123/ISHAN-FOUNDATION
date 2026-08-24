@@ -34,7 +34,7 @@ export default function Technology() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
         >
           {technologyData.map((tech) => {
             const IconComponent = (Icons as any)[tech.iconName] || Icons.Cpu;

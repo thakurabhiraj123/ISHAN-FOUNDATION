@@ -169,18 +169,18 @@ export default function GalleryPage() {
             </div>
 
             {/* Center Slider Area */}
-            <div className="max-w-4xl mx-auto w-full flex items-center justify-between my-auto py-8">
+            <div className="max-w-4xl mx-auto w-full flex items-center justify-between my-auto py-8 relative">
               {/* Prev Button */}
               <button
                 onClick={handlePrev}
-                className="p-3 bg-white/5 border border-white/10 hover:bg-white/10 rounded-full transition-colors text-white"
+                className="absolute left-2 md:left-4 z-20 p-2 md:p-3 bg-black/40 border border-white/10 hover:bg-white/20 rounded-full transition-colors text-white backdrop-blur-sm"
                 aria-label="Previous slide"
               >
-                <ChevronLeft className="h-6 w-6" />
+                <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
               </button>
 
               {/* Main Visual Panel */}
-              <div className="w-full max-w-2xl px-4 flex justify-center">
+              <div className="w-full max-w-2xl px-12 md:px-16 flex justify-center">
                 <motion.div
                   initial={{ scale: 0.92, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -226,10 +226,10 @@ export default function GalleryPage() {
               {/* Next Button */}
               <button
                 onClick={handleNext}
-                className="p-3 bg-white/5 border border-white/10 hover:bg-white/10 rounded-full transition-colors text-white"
+                className="absolute right-2 md:right-4 z-20 p-2 md:p-3 bg-black/40 border border-white/10 hover:bg-white/20 rounded-full transition-colors text-white backdrop-blur-sm"
                 aria-label="Next slide"
               >
-                <ChevronRight className="h-6 w-6" />
+                <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
               </button>
             </div>
 

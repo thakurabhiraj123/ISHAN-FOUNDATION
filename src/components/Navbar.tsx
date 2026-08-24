@@ -42,10 +42,10 @@ export default function Navbar() {
               className="h-9 w-9 object-contain group-hover:scale-105 transition-transform duration-300"
             />
             <div className="flex flex-col">
-              <span className="font-heading font-extrabold text-xl tracking-tight text-[#08203E] group-hover:text-primary-500 transition-colors duration-300">
+              <span className="font-heading font-extrabold text-lg sm:text-xl tracking-tight text-[#08203E] group-hover:text-primary-500 transition-colors duration-300">
                 ISHAAN FOUNDATION
               </span>
-              <span className="text-[10px] font-semibold text-emerald-600 tracking-wider -mt-1 uppercase">
+              <span className="text-[9px] sm:text-[10px] font-semibold text-emerald-600 tracking-wider -mt-1 uppercase">
                 Healthcare & Community NGO
               </span>
             </div>

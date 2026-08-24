@@ -34,7 +34,7 @@ export default function Approach() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-6 relative"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6 relative"
         >
           
           {approachData.map((step, index) => {
@@ -56,7 +56,7 @@ export default function Approach() {
               >
                 {/* Connection line helper (only for screens that don't warp layout drastically) */}
                 {index < 6 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 translate-x-1/2 -translate-y-1/2 z-10 text-slate-300 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all duration-300">
+                  <div className="hidden xl:block absolute top-1/2 -right-4 translate-x-1/2 -translate-y-1/2 z-10 text-slate-300 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all duration-300">
                     <Icons.ArrowRight className="h-4 w-4" />
                   </div>
                 )}

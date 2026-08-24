@@ -35,14 +35,14 @@ export default function ProjectsPage() {
         
         {/* Tab Filter Controls */}
         <div className="flex justify-center mb-12">
-          <div className="bg-slate-100 p-1.5 rounded-full border border-slate-200/50 flex space-x-2">
+          <div className="bg-slate-100 p-1.5 rounded-2xl md:rounded-full border border-slate-200/50 flex flex-wrap md:flex-nowrap justify-center gap-2 md:gap-0 md:space-x-2">
             {(['all', 'established', 'planned'] as const).map(tab => (
               <motion.button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                className={`px-4 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
                   activeTab === tab
                     ? 'bg-slate-900 text-white shadow-md'
                     : 'text-slate-600 hover:text-slate-950'
