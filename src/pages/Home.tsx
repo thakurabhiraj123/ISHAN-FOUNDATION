@@ -5,6 +5,8 @@ import Challenges from '../sections/Challenges';
 import Approach from '../sections/Approach';
 import Programs from '../sections/Programs';
 import Activities from '../sections/Activities';
+import Awards from '../sections/Awards';
+import TrustCredentials from '../sections/TrustCredentials';
 import Beneficiaries from '../sections/Beneficiaries';
 import Impact from '../sections/Impact';
 import Projects from '../sections/Projects';
@@ -24,6 +26,8 @@ export default function Home() {
       <Approach />
       <Programs />
       <Activities />
+      <Awards />
+      <TrustCredentials />
       <Beneficiaries />
       <Impact />
       <Projects />

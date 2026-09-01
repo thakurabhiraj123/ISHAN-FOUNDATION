@@ -12,8 +12,7 @@ export default function Layout({ children }: LayoutProps) {
     <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       <Navbar />
-      {/* Spacer to avoid navbar overlap for fixed nav */}
-      <main className="flex-grow pt-20 md:pt-24 bg-[#F8FAFC]">
+      <main className="flex-grow bg-[#F8FAFC]">
         {children}
       </main>
       <Footer />

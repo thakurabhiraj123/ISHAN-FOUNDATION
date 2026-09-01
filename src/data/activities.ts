@@ -2,6 +2,11 @@ import bloodDonationImg from '../assets/images/blood_donation_camp.jpg';
 import childrenDrawingImg from '../assets/images/children_drawing_competition.jpg';
 import footballTeamImg from '../assets/images/football_team.jpg';
 import bloodDonorsBedImg from '../assets/images/blood_donors_bed.jpg';
+import susaHealthCampGroupImg from '../assets/images/susa_health_camp_group.jpg';
+import susaAppreciationPlaqueImg from '../assets/images/susa_appreciation_plaque.jpg';
+import susaHealthCampChequeImg from '../assets/images/susa_health_camp_cheque.jpg';
+import susaTrophyPresentationImg from '../assets/images/susa_trophy_presentation.jpg';
+import susaHealthCampTeamImg from '../assets/images/susa_health_camp_team_selfie.jpg';
 
 export interface ActivityItem {
   id: string;
@@ -16,6 +21,22 @@ export interface ActivityItem {
 }
 
 export const activitiesData: ActivityItem[] = [
+  {
+    id: 'susa-foundation-day-camp-2026',
+    date: 'August 2026',
+    title: 'SUSA 3rd Foundation Day Health Camp & Appreciation',
+    category: 'Healthcare & Sports',
+    details: 'Organized in association with Siliguri Umpires\' & Scorers\' Association on their 3rd Foundation Day. Conducted general health checkups, ECG testing, and presented healthcare assistance aid alongside receiving an honorary Plaque of Appreciation.',
+    stats: 'General Health & ECG Screening',
+    organizedWith: 'Siliguri Umpires\' & Scorers\' Association',
+    images: [
+      susaHealthCampGroupImg,
+      susaAppreciationPlaqueImg,
+      susaHealthCampChequeImg,
+      susaTrophyPresentationImg,
+      susaHealthCampTeamImg,
+    ],
+  },
   {
     id: 'healthcare-camp-2026',
     date: '09 August 2026',

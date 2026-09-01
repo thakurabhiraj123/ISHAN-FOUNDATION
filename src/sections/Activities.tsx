@@ -1,216 +1,289 @@
-import { useState } from 'react';
-import { Calendar, Users, Heart, Award, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { activitiesData } from '../data/activities';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-// Separate component to handle active state hook unconditionally
-function ActivityCarousel({ images, title }: { images: string[]; title: string }) {
-  const [activeIndex, setActiveIndex] = useState(0);
+import susaHealthCampGroupImg from '../assets/images/susa_health_camp_group.jpg';
+import susaAppreciationPlaqueImg from '../assets/images/susa_appreciation_plaque.jpg';
+import susaHealthCampChequeImg from '../assets/images/susa_health_camp_cheque.jpg';
+import susaTrophyPresentationImg from '../assets/images/susa_trophy_presentation.jpg';
+import susaHealthCampTeamImg from '../assets/images/susa_health_camp_team_selfie.jpg';
+import bloodCampWelcomeImg from '../assets/images/blood_camp_welcome.jpg';
+import medicalCheckupImg from '../assets/images/medical_checkup.jpg';
+import bloodDonorThumbsupImg from '../assets/images/blood_donor_thumbsup.jpg';
+import bloodDonorsBedImg from '../assets/images/blood_donors_bed.jpg';
+import childrenDrawingImg from '../assets/images/children_drawing_competition.jpg';
+import bloodDonationImg from '../assets/images/blood_donation_camp.jpg';
+import footballTeamImg from '../assets/images/football_team.jpg';
+import footballPlayersImg from '../assets/images/football_players.jpg';
 
-  const handlePrev = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
-  const handleNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
-
-  return (
-    <div className="mt-4 space-y-3">
-      {/* Main image container with modern aspect ratio and zoom on hover */}
-      <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm bg-slate-900 aspect-[4/3] sm:aspect-[16/10] flex items-center justify-center group/media">
-        <img
-          src={images[activeIndex]}
-          alt={`${title} - Photo ${activeIndex + 1}`}
-          className="w-full h-full object-cover transition-all duration-500"
-        />
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 opacity-0 group-hover/media:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-        {/* Navigation Controls */}
-        <button
-          onClick={handlePrev}
-          className="absolute left-3 p-2 rounded-full bg-white/90 hover:bg-white text-slate-800 shadow-md backdrop-blur-sm opacity-0 group-hover/media:opacity-100 transition-all duration-200 transform -translate-x-2 group-hover/media:translate-x-0 hover:scale-105 active:scale-95"
-          aria-label="Previous image"
-        >
-          <ChevronLeft className="h-4.5 w-4.5" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="absolute right-3 p-2 rounded-full bg-white/90 hover:bg-white text-slate-800 shadow-md backdrop-blur-sm opacity-0 group-hover/media:opacity-100 transition-all duration-200 transform translate-x-2 group-hover/media:translate-x-0 hover:scale-105 active:scale-95"
-          aria-label="Next image"
-        >
-          <ChevronRight className="h-4.5 w-4.5" />
-        </button>
-
-        {/* Page indicator */}
-        <div className="absolute bottom-3 right-3 bg-black/65 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full backdrop-blur-sm tracking-wider select-none">
-          {activeIndex + 1} / {images.length}
-        </div>
-      </div>
-
-      {/* Thumbnail Selector strip */}
-      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none snap-x">
-        {images.map((img, idx) => (
-          <button
-            key={idx}
-            onClick={() => setActiveIndex(idx)}
-            className={`relative h-11 w-16 rounded-lg overflow-hidden border-2 shrink-0 transition-all snap-start ${
-              activeIndex === idx ? 'border-emerald-500 scale-102 shadow-sm' : 'border-transparent hover:border-slate-300'
-            }`}
-          >
-            <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
-            {activeIndex !== idx && <div className="absolute inset-0 bg-slate-900/10 hover:bg-transparent transition-colors" />}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Media dispatcher component
-function ActivityMedia({ images, image, title }: { images?: string[]; image?: string; title: string }) {
-  if (images && images.length > 0) {
-    return <ActivityCarousel images={images} title={title} />;
-  }
-
-  if (image) {
-    return (
-      <div className="mt-3.5 rounded-2xl overflow-hidden border border-slate-100 shadow-sm bg-[#08203E]/5 flex justify-center max-h-[380px] hover:border-primary-250 transition-all duration-300">
-        <img
-          src={image}
-          alt={title}
-          className="max-w-full max-h-[380px] object-contain rounded-2xl hover:scale-[1.01] transition-transform duration-500"
-        />
-      </div>
-    );
-  }
-
-  return null;
-}
-
+const activityPhotos = [
+  susaHealthCampGroupImg,
+  susaAppreciationPlaqueImg,
+  susaHealthCampChequeImg,
+  susaTrophyPresentationImg,
+  susaHealthCampTeamImg,
+  bloodCampWelcomeImg,
+  medicalCheckupImg,
+  bloodDonorThumbsupImg,
+  bloodDonorsBedImg,
+  childrenDrawingImg,
+  bloodDonationImg,
+  footballTeamImg,
+  footballPlayersImg,
+];
 
 export default function Activities() {
-  // Sort activities chronologically by parsed date or just display our ordered static array
-  // The activitiesData is already ordered: Drawing Competition (Aug 31), Blood Donation (Oct 22), Balaka Club (Dec 30)
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Update scroll state and active dot indicator
+  const handleScroll = useCallback(() => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+
+    const itemWidth = clientWidth / (window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1);
+    const index = Math.round(scrollLeft / itemWidth);
+    setActiveIndex(Math.min(index, activityPhotos.length - 1));
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  // Smooth scroll left / right
+  const scrollPrev = () => {
+    if (!scrollRef.current) return;
+    const { clientWidth } = scrollRef.current;
+    scrollRef.current.scrollBy({ left: -clientWidth * 0.75, behavior: 'smooth' });
+  };
+
+  const scrollNext = () => {
+    if (!scrollRef.current) return;
+    const { clientWidth } = scrollRef.current;
+    scrollRef.current.scrollBy({ left: clientWidth * 0.75, behavior: 'smooth' });
+  };
+
+  const scrollToDot = (idx: number) => {
+    if (!scrollRef.current) return;
+    const { clientWidth, scrollWidth } = scrollRef.current;
+    const maxScroll = scrollWidth - clientWidth;
+    const targetScroll = (idx / (dotsCount - 1)) * maxScroll;
+    scrollRef.current.scrollTo({ left: targetScroll, behavior: 'smooth' });
+  };
+
+  // Lightbox handlers
+  const handleOpenLightbox = (index: number) => {
+    setLightboxIndex(index);
+  };
+
+  const handleCloseLightbox = useCallback(() => {
+    setLightboxIndex(null);
+  }, []);
+
+  const handleLightboxPrev = useCallback((e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    setLightboxIndex((prev) => {
+      if (prev === null) return null;
+      return prev === 0 ? activityPhotos.length - 1 : prev - 1;
+    });
+  }, []);
+
+  const handleLightboxNext = useCallback((e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    setLightboxIndex((prev) => {
+      if (prev === null) return null;
+      return prev === activityPhotos.length - 1 ? 0 : prev + 1;
+    });
+  }, []);
+
+  // Keyboard navigation for Lightbox
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleCloseLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        handleLightboxPrev();
+      } else if (e.key === 'ArrowRight') {
+        handleLightboxNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex, handleCloseLightbox, handleLightboxPrev, handleLightboxNext]);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [lightboxIndex]);
+
+  // Number of pagination dots
+  const dotsCount = Math.min(8, activityPhotos.length);
+  const activeDotIndex = Math.min(
+    Math.round((activeIndex / (activityPhotos.length - 1)) * (dotsCount - 1)),
+    dotsCount - 1
+  );
 
   return (
-    <section className="py-20 bg-slate-50 border-b border-slate-100">
+    <section className="py-12 sm:py-16 bg-slate-50 border-b border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-sm font-bold text-emerald-600 uppercase tracking-widest block">
-            Our Record
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#08203E]">
-            Past Activities Timeline
+        {/* Clean, minimal Section Header */}
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-heading text-[#08203E] tracking-tight">
+            Past Activities
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
-            A chronological timeline of verified community and healthcare operations conducted in Surya Nagar and the broader Jalpaiguri district.
-          </p>
         </div>
 
-        {/* Vertical Timeline */}
-        <div className="relative max-w-3xl mx-auto">
-          {/* Vertical line through timeline */}
-          <motion.div
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 1.0, ease: 'easeInOut' }}
-            style={{ originY: 0 }}
-            className="absolute left-4 sm:left-1/2 top-2 bottom-2 w-0.5 bg-gradient-to-b from-primary-500 via-primary-500 to-emerald-500 -translate-x-1/2"
-          />
+        {/* Carousel Container with Left/Right Arrow Buttons */}
+        <div className="relative group/carousel">
+          {/* Left Arrow Button */}
+          <button
+            onClick={scrollPrev}
+            disabled={!canScrollLeft}
+            className={`absolute -left-2 sm:-left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-20 p-2.5 sm:p-3 rounded-full bg-white/95 text-slate-800 shadow-lg border border-slate-200/80 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm ${
+              !canScrollLeft
+                ? 'opacity-0 pointer-events-none'
+                : 'opacity-90 hover:opacity-100 hover:bg-white hover:border-emerald-500/50'
+            }`}
+            aria-label="Previous photos"
+          >
+            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-slate-800" />
+          </button>
 
-          <div className="space-y-12">
-            {activitiesData.map((activity, index) => {
-              const isEven = index % 2 === 0;
-
-              return (
-                <div
-                  key={activity.id}
-                  className={`relative flex flex-col sm:flex-row ${
-                    isEven ? 'sm:flex-row-reverse' : ''
-                  } items-start sm:items-center`}
-                >
-                  {/* Circle Marker */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: '-80px' }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
-                    className="absolute left-4 sm:left-1/2 w-8 h-8 rounded-full bg-white border-4 border-primary-500 -translate-x-1/2 flex items-center justify-center z-10 shadow-md group hover:border-emerald-500 transition-colors duration-300"
-                  >
-                    {index === 0 && <Award className="h-3.5 w-3.5 text-primary-500 group-hover:text-emerald-500 group-hover:scale-110 transition-all duration-300" />}
-                    {index === 1 && <Heart className="h-3.5 w-3.5 text-primary-500 group-hover:text-emerald-500 group-hover:scale-110 group-hover:fill-emerald-500 transition-all duration-300" />}
-                    {index === 2 && <Users className="h-3.5 w-3.5 text-primary-500 group-hover:text-emerald-500 group-hover:scale-110 transition-all duration-300" />}
-                  </motion.div>
-
-                  {/* Spacer Column for alignment */}
-                  <div className="hidden sm:block w-1/2" />
-
-                  {/* Card Content Column */}
-                  <motion.div
-                    initial={{ opacity: 0, x: isEven ? -40 : 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full sm:w-1/2 pl-12 sm:pl-0 sm:px-8"
-                  >
-                    <div className="group bg-white rounded-3xl p-6 shadow-sm border border-slate-100/80 hover:border-primary-100 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 text-left space-y-4 cursor-default">
-                      {/* Date & Category */}
-                      <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-                        <span className="flex items-center text-primary-500 group-hover:text-emerald-600 font-semibold space-x-1.5 transition-colors duration-300">
-                          <Calendar className="h-3.5 w-3.5" />
-                          <span>{activity.date}</span>
-                        </span>
-                        <span className="bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider text-[9px]">
-                          {activity.category}
-                        </span>
-                      </div>
-
-                      {/* Title & details */}
-                      <div className="space-y-2">
-                        <h3 className="font-heading font-extrabold text-lg text-[#08203E] group-hover:text-primary-500 transition-colors">
-                          {activity.title}
-                        </h3>
-                        <p className="text-xs text-slate-500 leading-relaxed font-medium">
-                          {activity.details}
-                        </p>
-                        <ActivityMedia
-                          images={activity.images}
-                          image={activity.image}
-                          title={activity.title}
-                        />
-                      </div>
-
-                      {/* Metadata */}
-                      {(activity.organizedWith || activity.stats) && (
-                        <div className="pt-3 border-t border-slate-100 flex flex-wrap gap-4 text-xs font-semibold text-[#08203E]">
-                          {activity.stats && (
-                            <div className="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-lg group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
-                              {activity.stats}
-                            </div>
-                          )}
-                          {activity.organizedWith && (
-                            <div className="text-slate-400 py-1">
-                              With: <span className="text-slate-600 font-bold group-hover:text-primary-500 transition-colors duration-300">{activity.organizedWith}</span>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
+          {/* Horizontal Photo Slider */}
+          <div
+            ref={scrollRef}
+            className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2 px-1 scroll-smooth"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {activityPhotos.map((photo, index) => (
+              <div
+                key={index}
+                onClick={() => handleOpenLightbox(index)}
+                className="flex-shrink-0 w-[78%] sm:w-[calc(50%-10px)] lg:w-[calc(25%-18px)] aspect-[4/3] snap-start cursor-pointer group"
+              >
+                <div className="w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm group-hover:shadow-xl group-hover:border-emerald-500/40 transition-all duration-300 relative">
+                  <img
+                    src={photo}
+                    alt={`Activity photo ${index + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out select-none"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={scrollNext}
+            disabled={!canScrollRight}
+            className={`absolute -right-2 sm:-right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-20 p-2.5 sm:p-3 rounded-full bg-white/95 text-slate-800 shadow-lg border border-slate-200/80 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm ${
+              !canScrollRight
+                ? 'opacity-0 pointer-events-none'
+                : 'opacity-90 hover:opacity-100 hover:bg-white hover:border-emerald-500/50'
+            }`}
+            aria-label="Next photos"
+          >
+            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-slate-800" />
+          </button>
+        </div>
+
+        {/* Small Pagination Dots */}
+        <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-6">
+          {Array.from({ length: dotsCount }).map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToDot(idx)}
+              className={`rounded-full transition-all duration-300 cursor-pointer ${
+                activeDotIndex === idx
+                  ? 'w-6 sm:w-7 h-2 bg-emerald-500 shadow-sm shadow-emerald-500/30'
+                  : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
 
       </div>
+
+      {/* Full-Screen Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={handleCloseLightbox}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 lg:p-8 select-none"
+          >
+            {/* Close Button */}
+            <button
+              onClick={handleCloseLightbox}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/10 transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="h-6 w-6" />
+            </button>
+
+            {/* Prev Button */}
+            <button
+              onClick={handleLightboxPrev}
+              className="absolute left-4 sm:left-6 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/10 transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+              aria-label="Previous photo"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+
+            {/* Next Button */}
+            <button
+              onClick={handleLightboxNext}
+              className="absolute right-4 sm:right-6 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/10 transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+              aria-label="Next photo"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+
+            {/* Full-size Image Container */}
+            <motion.div
+              key={lightboxIndex}
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl max-h-[85vh] flex items-center justify-center"
+            >
+              <img
+                src={activityPhotos[lightboxIndex]}
+                alt={`Activity photo ${lightboxIndex + 1}`}
+                className="max-w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl border border-white/10"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

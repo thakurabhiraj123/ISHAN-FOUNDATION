@@ -5,11 +5,10 @@ export interface NavLink {
 
 export const navLinks: NavLink[] = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Services', path: '/services' },
-  { name: 'Programs', path: '/programs' },
-  { name: 'Projects', path: '/projects' },
+  { name: 'About Us', path: '/about' },
+  { name: 'Our Programs', path: '/programs' },
+  { name: 'Our Work', path: '/projects' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Get Involved', path: '/volunteer' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Contact Us', path: '/contact' },
 ];

@@ -3,11 +3,15 @@ import bloodCampWelcomeImg from '../assets/images/blood_camp_welcome.jpg';
 import medicalCheckupImg from '../assets/images/medical_checkup.jpg';
 import bloodDonorThumbsupImg from '../assets/images/blood_donor_thumbsup.jpg';
 import bloodDonorsBedImg from '../assets/images/blood_donors_bed.jpg';
-import bloodDonationSessionImg from '../assets/images/blood_donation_session.jpg';
 import childrenDrawingImg from '../assets/images/children_drawing_competition.jpg';
 import footballTeamImg from '../assets/images/football_team.jpg';
 import footballPlayersImg from '../assets/images/football_players.jpg';
 import visionCampFlyerImg from '../assets/images/vision_camp_flyer.jpg';
+import susaHealthCampGroupImg from '../assets/images/susa_health_camp_group.jpg';
+import susaAppreciationPlaqueImg from '../assets/images/susa_appreciation_plaque.jpg';
+import susaHealthCampChequeImg from '../assets/images/susa_health_camp_cheque.jpg';
+import susaTrophyPresentationImg from '../assets/images/susa_trophy_presentation.jpg';
+import susaHealthCampTeamImg from '../assets/images/susa_health_camp_team_selfie.jpg';
 
 export interface GalleryItem {
   id: string;
@@ -28,6 +32,51 @@ export const galleryCategories = [
 ];
 
 export const galleryData: GalleryItem[] = [
+  {
+    id: 'g-susa-health-camp-group',
+    category: 'healthcare',
+    title: 'SUSA 3rd Foundation Day Health Camp',
+    description: 'ISHAAN FOUNDATION in association with Siliguri Umpires\' & Scorers\' Association organizing General Health Checkup & ECG screening camp.',
+    date: 'August 2026',
+    placeholderBg: 'from-emerald-600 via-teal-500 to-cyan-400',
+    image: susaHealthCampGroupImg,
+  },
+  {
+    id: 'g-susa-appreciation-plaque',
+    category: 'healthcare',
+    title: 'Token of Appreciation Presentation',
+    description: 'Ishaan Foundation leadership receiving the Foundation Day Memento & Plaque of Appreciation from SUSA officials.',
+    date: 'August 2026',
+    placeholderBg: 'from-amber-600 via-yellow-500 to-orange-400',
+    image: susaAppreciationPlaqueImg,
+  },
+  {
+    id: 'g-susa-health-camp-cheque',
+    category: 'healthcare',
+    title: 'Healthcare Assistance Handover',
+    description: 'Handing over community healthcare aid and medical support during the 3rd Foundation Day collaborative camp.',
+    date: 'August 2026',
+    placeholderBg: 'from-blue-600 via-indigo-500 to-emerald-400',
+    image: susaHealthCampChequeImg,
+  },
+  {
+    id: 'g-susa-trophy-presentation',
+    category: 'tour-travels',
+    title: 'Youth & Sports Talent Felicitation',
+    description: 'Felicitation ceremony recognizing youth participants and achievers at the collaborative SUSA foundation event.',
+    date: 'August 2026',
+    placeholderBg: 'from-purple-600 via-indigo-500 to-pink-400',
+    image: susaTrophyPresentationImg,
+  },
+  {
+    id: 'g-susa-health-camp-team',
+    category: 'healthcare',
+    title: 'Ishaan Foundation Camp Volunteers',
+    description: 'Our dedicated foundation volunteers and coordinators at the Siliguri Umpires\' & Scorers\' Association health camp.',
+    date: 'August 2026',
+    placeholderBg: 'from-rose-600 via-red-500 to-amber-400',
+    image: susaHealthCampTeamImg,
+  },
   {
     id: 'g-blood-camp-welcome',
     category: 'healthcare',
@@ -63,15 +112,6 @@ export const galleryData: GalleryItem[] = [
     date: 'August 9, 2026',
     placeholderBg: 'from-rose-600 via-red-500 to-orange-400',
     image: bloodDonorsBedImg,
-  },
-  {
-    id: 'g-blood-donation-session',
-    category: 'healthcare',
-    title: 'Clinical Blood Collection Session',
-    description: 'State-of-the-art blood screening and collection in progress at the community hall.',
-    date: 'August 9, 2026',
-    placeholderBg: 'from-emerald-600 via-blue-500 to-indigo-400',
-    image: bloodDonationSessionImg,
   },
   {
     id: 'g-children-drawing',

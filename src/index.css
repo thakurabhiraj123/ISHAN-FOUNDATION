@@ -49,6 +49,19 @@
 }
 
 /* Keyframes and utility classes for animations */
+@keyframes heroBackgroundZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.04);
+  }
+}
+
+.animate-hero-zoom {
+  animation: heroBackgroundZoom 16s ease-in-out infinite alternate;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
@@ -87,4 +100,3 @@
 .animate-line-glow {
   animation: line-glow 2s ease-in-out infinite;
 }
-

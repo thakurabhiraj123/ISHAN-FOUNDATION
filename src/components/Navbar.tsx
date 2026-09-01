@@ -19,29 +19,32 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Filter regular links from the highlighted Contact Us button
+  const mainNavLinks = navLinks.filter(link => link.name !== 'Contact Us');
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'glass-nav shadow-md py-3 border-b border-slate-200/50'
-          : 'bg-white/90 md:bg-transparent py-5'
+          ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5 sm:py-3 border-b border-slate-200/70'
+          : 'bg-white/95 backdrop-blur-md py-3.5 sm:py-4 border-b border-slate-100/80 shadow-xs'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2.5 group">
+          
+          {/* Logo & Foundation Name (Kept exact) */}
+          <Link to="/" className="flex items-center space-x-2.5 group shrink-0">
             <img
               src={logoImg}
               alt="Ishaan Foundation Logo"
               className="h-9 w-9 object-contain group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="flex flex-col">
+            <div className="flex flex-col text-left">
               <span className="font-heading font-extrabold text-lg sm:text-xl tracking-tight text-[#08203E] group-hover:text-primary-500 transition-colors duration-300">
                 ISHAAN FOUNDATION
               </span>
@@ -51,9 +54,9 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navLinks.filter(link => link.name !== 'Contact').map((link) => {
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+            {mainNavLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
                 <Link
@@ -61,10 +64,8 @@ export default function Navbar() {
                   to={link.path}
                   className={`font-sans text-sm font-medium tracking-wide transition-colors duration-200 relative py-1 ${
                     isActive
-                      ? 'text-primary-500'
-                      : scrolled
-                      ? 'text-slate-700 hover:text-primary-500'
-                      : 'text-[#08203E] hover:text-primary-500 md:text-slate-900 md:hover:text-primary-500'
+                      ? 'text-primary-500 font-semibold'
+                      : 'text-slate-700 hover:text-primary-500'
                   }`}
                 >
                   {link.name}
@@ -78,19 +79,21 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            {/* Highlighted Blue Contact Us CTA Button */}
             <Link
               to="/contact"
-              className="bg-primary-500 text-white hover:bg-primary-600 px-5 py-2 rounded-full text-sm font-semibold tracking-wide shadow-lg shadow-primary-500/20 hover:shadow-primary-600/30 hover:-translate-y-[1px] active:translate-y-[1px] transition-all duration-200"
+              className="bg-primary-500 text-white hover:bg-primary-600 px-5 py-2 rounded-full text-sm font-semibold tracking-wide shadow-md shadow-primary-500/20 hover:shadow-primary-600/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 shrink-0"
             >
               Contact Us
             </Link>
           </nav>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-700 hover:text-primary-500 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+              className="text-slate-700 hover:text-primary-500 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500/20 cursor-pointer transition-colors"
               aria-label="Toggle navigation menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -109,15 +112,15 @@ export default function Navbar() {
             transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="lg:hidden bg-white border-b border-slate-200 shadow-xl overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-2">
-              {navLinks.filter(link => link.name !== 'Contact').map((link) => {
+            <div className="px-4 pt-2 pb-6 space-y-1.5 text-left">
+              {mainNavLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
                   <Link
                     key={link.name}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-3 py-3 rounded-lg text-base font-medium transition-colors ${
+                    className={`block px-3.5 py-2.5 rounded-xl text-base font-medium transition-colors ${
                       isActive
                         ? 'bg-primary-50 text-primary-500 font-bold'
                         : 'text-slate-700 hover:bg-slate-50 hover:text-primary-500'
@@ -127,7 +130,7 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              <div className="pt-4 px-3">
+              <div className="pt-3 px-1">
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}

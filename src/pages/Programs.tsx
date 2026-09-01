@@ -1,5 +1,7 @@
 import Programs from '../sections/Programs';
 import Activities from '../sections/Activities';
+import Awards from '../sections/Awards';
+import TrustCredentials from '../sections/TrustCredentials';
 import Technology from '../sections/Technology';
 
 export default function ProgramsPage() {
@@ -27,6 +29,12 @@ export default function ProgramsPage() {
 
       {/* Activities Timeline Section */}
       <Activities />
+
+      {/* Awards & Recognition Section */}
+      <Awards />
+
+      {/* Trust & Credentials Section */}
+      <TrustCredentials />
 
       {/* Technology & Equipment Section */}
       <Technology />
