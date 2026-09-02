@@ -61,7 +61,7 @@ export const activitiesData: ActivityItem[] = [
     date: '22 October 2025',
     title: 'Anti-Rabies Stray Vaccination Drive',
     category: 'Animal Welfare',
-    details: 'Conducted a comprehensive stray animal vaccination and treatment drive across Jalpaiguri blocks. Over 100 dogs were vaccinated against rabies, and basic veterinary aid kits were distributed to neighborhood volunteer squads.',
+    details: 'Conducted a comprehensive stray animal vaccination and treatment drive across Siliguri and Jalpaiguri blocks. Over 100 dogs were vaccinated against rabies, and basic veterinary aid kits were distributed to neighborhood volunteer squads.',
     stats: '100+ Strays Vaccinated',
     image: bloodDonationImg,
   },

@@ -10,7 +10,7 @@ export const projectsData: ProjectItem[] = [
   {
     id: 'rural-health-camps',
     title: 'Rural Health Camp Operations',
-    description: 'Established portable clinical camps to offer free check-ups, primary care and vitals checking in Jalpaiguri tea gardens.',
+    description: 'Established portable clinical camps to offer free check-ups, primary care and vitals checking in Siliguri and Jalpaiguri tea gardens.',
     status: 'established',
     details: [
       'Conducted 10+ free medical camps in local blocks',
@@ -21,7 +21,7 @@ export const projectsData: ProjectItem[] = [
   {
     id: 'stray-feeding-vaccination',
     title: 'Stray Animal Care Drives',
-    description: 'Initiated local anti-rabies vaccination drives and feeding walks to support stray dog populations in urban Jalpaiguri.',
+    description: 'Initiated local anti-rabies vaccination drives and feeding walks to support stray dog populations in urban Siliguri and Jalpaiguri.',
     status: 'established',
     details: [
       'Vaccinated 100+ stray dogs against rabies',
@@ -32,7 +32,7 @@ export const projectsData: ProjectItem[] = [
   {
     id: 'tailoring-vocational-center',
     title: 'Women Tailoring Center',
-    description: 'Opened our first tailoring training center in Jalpaiguri, providing sewing machines and professional training to local women.',
+    description: 'Opened our first tailoring training center in Siliguri, Jalpaiguri, providing sewing machines and professional training to local women.',
     status: 'established',
     details: [
       'Enrolled and trained 30+ women in professional sewing techniques',

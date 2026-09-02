@@ -121,7 +121,7 @@ export default function ContactPage() {
                     >
                       Surya Nagar, Rabindra Sarani,
                       <br />
-                      Jalpaiguri, West Bengal, India
+                      Siliguri, Jalpaiguri, West Bengal, India
                     </a>
                   </div>
                 </li>
@@ -141,7 +141,7 @@ export default function ContactPage() {
             {/* Static Map Visual */}
             <div className="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm space-y-4">
               <div className="flex justify-between items-center text-xs font-semibold">
-                <span className="text-slate-600">Jalpaiguri District Map</span>
+                <span className="text-slate-600">Siliguri, Jalpaiguri District Map</span>
                 <span className="text-emerald-600 uppercase tracking-wider text-[10px]">Location Pin</span>
               </div>
               

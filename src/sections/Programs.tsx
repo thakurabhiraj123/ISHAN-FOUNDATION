@@ -1,4 +1,4 @@
-import { HeartPulse, Heart, Users, Compass, CheckCircle2 } from 'lucide-react';
+import { HeartPulse, Heart, Users, Compass, HeartHandshake, CheckCircle2 } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { programsData } from '../data/programs';
 
@@ -13,6 +13,8 @@ function ProgramIcon({ id }: { id: string }) {
       return <Users className="h-6 w-6" />;
     case 'tour-travels':
       return <Compass className="h-6 w-6" />;
+    case 'support-activities':
+      return <HeartHandshake className="h-6 w-6" />;
     default:
       return <HeartPulse className="h-6 w-6" />;
   }
@@ -63,7 +65,7 @@ export default function Programs() {
           </p>
         </motion.div>
 
-        {/* Balanced 2x2 Programs Grid */}
+        {/* Programs Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -71,13 +73,18 @@ export default function Programs() {
           viewport={{ once: true, margin: '-60px' }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
         >
-          {programsData.map((program) => {
+          {programsData.map((program, index) => {
+            const isLastOdd = index === programsData.length - 1 && programsData.length % 2 !== 0;
             return (
               <motion.div
                 key={program.id}
                 variants={cardVariants}
                 whileHover={{ y: -6 }}
-                className={`group bg-slate-50 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 ${program.themeColor.hoverBorder} shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-default text-left`}
+                className={`group bg-slate-50 hover:bg-white rounded-3xl p-7 sm:p-8 border border-slate-200/80 ${
+                  program.themeColor.hoverBorder
+                } shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-default text-left ${
+                  isLastOdd ? 'md:col-span-2 md:max-w-xl md:w-full md:mx-auto' : ''
+                }`}
               >
                 <div className="space-y-5">
                   {/* Top Row: Icon & Category Label */}

@@ -40,24 +40,29 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Services 3x3 Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
-          {servicesData.map((service) => {
+          {servicesData.map((service, index) => {
             // Dynamically resolve icons
             const IconComponent = (Icons as any)[service.iconName] || Icons.Heart;
+            const isNinthCard = index === 8;
 
             return (
               <motion.div
                 key={service.id}
                 variants={cardVariants}
                 whileHover={{ y: -6 }}
-                className="group bg-white rounded-3xl p-6 shadow-sm border border-slate-100/80 hover:border-primary-100 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 flex flex-col justify-between cursor-default"
+                className={`group bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-100/80 hover:border-primary-100 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 flex flex-col justify-between h-full cursor-default ${
+                  isNinthCard
+                    ? 'md:col-span-2 md:max-w-[calc(50%-1rem)] md:mx-auto w-full lg:col-span-1 lg:max-w-none lg:mx-0'
+                    : ''
+                }`}
               >
                 <div className="space-y-4">
                   <div className="inline-flex p-3 bg-primary-50 text-primary-500 rounded-2xl group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">

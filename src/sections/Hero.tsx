@@ -75,7 +75,7 @@ export default function Hero() {
             <motion.div variants={itemVariants}>
               <span className="inline-flex items-center space-x-1.5 bg-emerald-500/15 border border-emerald-500/30 px-3.5 py-1 rounded-full text-emerald-400 text-[11px] font-bold uppercase tracking-wider backdrop-blur-sm shadow-sm">
                 <HeartPulse className="h-3.5 w-3.5 text-emerald-400" />
-                <span>JALPAIGURI, WEST BENGAL</span>
+                <span>SILIGURI, JALPAIGURI, WEST BENGAL, INDIA</span>
               </span>
             </motion.div>
 

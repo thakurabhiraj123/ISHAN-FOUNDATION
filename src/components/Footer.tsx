@@ -11,15 +11,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Col */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2.5">
+            <Link to="/" className="flex items-center space-x-3 group">
               <img
                 src={logoImg}
                 alt="Ishaan Foundation Logo"
-                className="h-9 w-9 object-contain"
+                className="h-12 w-12 rounded-full object-contain aspect-square group-hover:scale-105 transition-transform duration-300"
               />
-              <span className="font-heading font-extrabold text-xl tracking-tight text-white">
-                ISHAAN FOUNDATION
-              </span>
+              <div className="flex flex-col text-left">
+                <span className="font-heading font-extrabold text-xl tracking-tight text-white leading-tight">
+                  ISHAAN FOUNDATION
+                </span>
+                <span className="text-[10px] font-semibold text-emerald-400 tracking-wider uppercase mt-0.5">
+                  Healthcare & Community NGO
+                </span>
+              </div>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
               Working toward affordable, accessible, and quality healthcare for underserved communities in rural North Bengal, India.
@@ -95,7 +100,7 @@ export default function Footer() {
                 >
                   Surya Nagar, Rabindra Sarani,
                   <br />
-                  Jalpaiguri, West Bengal, India
+                  Siliguri, Jalpaiguri, West Bengal, India
                 </a>
               </li>
               <li className="flex items-center space-x-3">
@@ -122,7 +127,7 @@ export default function Footer() {
             &copy; 2026 ISHAAN FOUNDATION. All Rights Reserved.
           </div>
           <div className="flex space-x-6">
-            <span>Jalpaiguri, West Bengal, India</span>
+            <span>Siliguri, Jalpaiguri, West Bengal, India</span>
             <span>|</span>
             <span>Static Website for Rural Social Health</span>
           </div>

@@ -16,5 +16,5 @@ export const founderData: FounderInfo = {
     'Rural Development',
     'Project Management',
   ],
-  bio: 'Arijit Sikdar leads ISHAAN FOUNDATION with a dedication to advancing rural healthcare, street animal welfare, women\'s empowerment, and sustainable community development across Jalpaiguri and North Bengal.',
+  bio: 'Arijit Sikdar leads ISHAAN FOUNDATION with a dedication to advancing rural healthcare, street animal welfare, women\'s empowerment, and sustainable community development across Siliguri, Jalpaiguri, and North Bengal.',
 };

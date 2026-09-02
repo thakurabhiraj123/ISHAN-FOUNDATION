@@ -30,25 +30,25 @@ export default function Navbar() {
     <header
       className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5 sm:py-3 border-b border-slate-200/70'
-          : 'bg-white/95 backdrop-blur-md py-3.5 sm:py-4 border-b border-slate-100/80 shadow-xs'
+          ? 'bg-white/95 backdrop-blur-md shadow-md py-2 sm:py-2.5 border-b border-slate-200/70'
+          : 'bg-white/95 backdrop-blur-md py-2.5 sm:py-3.5 border-b border-slate-100/80 shadow-xs'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo & Foundation Name (Kept exact) */}
-          <Link to="/" className="flex items-center space-x-2.5 group shrink-0">
+          {/* Official Circular Logo & Foundation Name */}
+          <Link to="/" className="flex items-center gap-2.5 sm:gap-3.5 group shrink-0">
             <img
               src={logoImg}
-              alt="Ishaan Foundation Logo"
-              className="h-9 w-9 object-contain group-hover:scale-105 transition-transform duration-300"
+              alt="Ishaan Foundation Official Logo"
+              className="h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full object-contain shrink-0 aspect-square group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="flex flex-col text-left">
-              <span className="font-heading font-extrabold text-lg sm:text-xl tracking-tight text-[#08203E] group-hover:text-primary-500 transition-colors duration-300">
+            <div className="flex flex-col justify-center text-left">
+              <span className="font-heading font-extrabold text-base sm:text-lg md:text-xl tracking-tight text-[#08203E] leading-tight group-hover:text-primary-600 transition-colors duration-300">
                 ISHAAN FOUNDATION
               </span>
-              <span className="text-[9px] sm:text-[10px] font-semibold text-emerald-600 tracking-wider -mt-1 uppercase">
+              <span className="text-[9px] sm:text-[10px] md:text-[11px] font-bold text-emerald-600 tracking-wider uppercase leading-tight mt-0.5">
                 Healthcare & Community NGO
               </span>
             </div>

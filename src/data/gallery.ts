@@ -117,7 +117,7 @@ export const galleryData: GalleryItem[] = [
     id: 'g-children-drawing',
     category: 'women-empowerment',
     title: 'Tailoring Center Course Graduation',
-    description: 'Graduating students receiving their sewing machine kits and course certifications at our Jalpaiguri center.',
+    description: 'Graduating students receiving their sewing machine kits and course certifications at our Siliguri, Jalpaiguri center.',
     date: 'August 31, 2025',
     placeholderBg: 'from-indigo-600 via-purple-600 to-pink-500',
     image: childrenDrawingImg,

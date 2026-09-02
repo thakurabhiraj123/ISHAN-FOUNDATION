@@ -60,14 +60,14 @@ export default function About() {
                   <div>
                     <h3 className="font-heading font-extrabold text-xl text-white">Our Commitments</h3>
                     <p className="text-xs text-slate-400 mt-2 leading-relaxed font-semibold">
-                      We operate within Jalpaiguri, West Bengal, delivering health screening support, stray animal rescue, women's skill training, and eco-tourism travel promotions.
+                      We operate within Siliguri, Jalpaiguri, West Bengal, delivering health screening support, stray animal rescue, women's skill training, and eco-tourism travel promotions.
                     </p>
                   </div>
 
                   <div className="pt-4 border-t border-slate-800 space-y-4">
                     <div className="flex justify-between items-center text-xs font-semibold">
                       <span className="text-slate-400">Headquarters</span>
-                      <span className="font-bold text-slate-200 text-right">Jalpaiguri, WB</span>
+                      <span className="font-bold text-slate-200 text-right">Siliguri, Jalpaiguri, WB</span>
                     </div>
                     <div className="flex justify-between items-center text-xs font-semibold">
                       <span className="text-slate-400">Director</span>
@@ -107,7 +107,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-slate-600 leading-relaxed text-sm font-medium"
             >
-              ISHAAN FOUNDATION is a non-governmental organization based in Surya Nagar, Jalpaiguri, West Bengal. We are committed to improving local lives and rural development. By bridging geographical and economic gaps, we drive progress across rural healthcare, street animal protection, women's skill empowerment, and sustainable eco-tourism travels.
+              ISHAAN FOUNDATION is a non-governmental organization based in Surya Nagar, Siliguri, Jalpaiguri, West Bengal. We are committed to improving local lives and rural development. By bridging geographical and economic gaps, we drive progress across rural healthcare, street animal protection, women's skill empowerment, and sustainable eco-tourism travels.
             </motion.p>
             
             <motion.p

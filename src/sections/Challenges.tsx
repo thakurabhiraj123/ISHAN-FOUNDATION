@@ -42,7 +42,7 @@ export default function Challenges() {
               Bridging Critical Gaps in Communities
             </h2>
             <p className="text-slate-600 leading-relaxed text-sm">
-              Rural communities in Jalpaiguri face severe gaps across healthcare access, stray animal protection, women's vocational opportunities, and youth livelihoods. We focus on bridging these critical divides.
+              Rural communities in Siliguri and Jalpaiguri face severe gaps across healthcare access, stray animal protection, women's vocational opportunities, and youth livelihoods. We focus on bridging these critical divides.
             </p>
 
             {/* Illustration Frame */}
@@ -58,7 +58,7 @@ export default function Challenges() {
                   Lack of resources, poor veterinary response, gender disparity, and unexploited local tourism opportunities contribute to rural stagnation. We aim to address these through focused, grass-roots actions.
                 </p>
                 <div className="border-t border-slate-800 pt-3 flex justify-between items-center text-[10px] text-slate-500 font-semibold tracking-wider">
-                  <span>Jalpaiguri District Survey</span>
+                  <span>Siliguri & Jalpaiguri Survey</span>
                   <span>North Bengal Region</span>
                 </div>
               </div>

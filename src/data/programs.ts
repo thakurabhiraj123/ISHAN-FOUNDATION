@@ -82,4 +82,21 @@ export const programsData: ProgramItem[] = [
       hoverBorder: 'hover:border-sky-200',
     },
   },
+  {
+    id: 'support-activities',
+    category: 'Community Support',
+    title: 'Support Activities',
+    description: 'Supporting underserved communities through community outreach, awareness initiatives, resource coordination, and assistance during local needs and emergencies.',
+    details: [
+      'Community outreach, awareness & support programs',
+      'Resource coordination and emergency assistance',
+    ],
+    themeColor: {
+      badge: 'bg-amber-50 text-amber-700 border-amber-200/60',
+      iconBg: 'bg-amber-50 border-amber-100 text-amber-600',
+      iconText: 'text-amber-600',
+      checkColor: 'text-amber-500',
+      hoverBorder: 'hover:border-amber-200',
+    },
+  },
 ];

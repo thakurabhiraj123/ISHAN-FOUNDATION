@@ -25,7 +25,7 @@ export default function AboutPage() {
             About ISHAAN FOUNDATION
           </h1>
           <p className="text-slate-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            A committed NGO based in Jalpaiguri, West Bengal, focused on rural healthcare, street animal welfare, women's empowerment, and eco-tourism.
+            A committed NGO based in Siliguri, Jalpaiguri, West Bengal, India, focused on rural healthcare, street animal welfare, women's empowerment, and eco-tourism.
           </p>
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function AboutPage() {
               Dedicated to Healthcare, Animal Welfare, Women, & Sustainable Travel
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Founded under the leadership of Arijit Sikdar, ISHAAN FOUNDATION acts as a local support channel for families, plantation laborers, and tea garden workers in Jalpaiguri. Our operations are centered on Surya Nagar, Rabindra Sarani, where we organize local medical checkups, stray animal rescue drives, tailoring training for women, and eco-tourism hospitality courses.
+              Founded under the leadership of Arijit Sikdar, ISHAAN FOUNDATION acts as a local support channel for families, plantation laborers, and tea garden workers in Siliguri, Jalpaiguri, West Bengal, India. Our operations are centered on Surya Nagar, Rabindra Sarani, where we organize local medical checkups, stray animal rescue drives, tailoring training for women, and eco-tourism hospitality courses.
             </p>
             <p className="text-sm text-slate-600 leading-relaxed">
               We focus on solving the root causes of rural stagnation in Bengal, specifically healthcare disparities, street animal neglect, lack of female vocational training, and underutilized eco-tourism opportunities.
@@ -63,7 +63,7 @@ export default function AboutPage() {
               <span className="font-heading font-bold text-sm tracking-wider text-slate-200">ISHAAN FOUNDATION</span>
             </div>
             <div className="z-10 space-y-2">
-              <p className="text-xs text-emerald-300 font-bold uppercase tracking-wider">Jalpaiguri HQ</p>
+              <p className="text-xs text-emerald-300 font-bold uppercase tracking-wider">Siliguri, Jalpaiguri HQ</p>
               <p className="text-xs text-slate-400 leading-relaxed">
                 Our team is made of community volunteers, animal welfare activists, youth coordinators, and social workers dedicated to rural healthcare, stray animal rescue, women's self-reliance, and sustainable travel.
               </p>
@@ -75,7 +75,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="hover:text-emerald-400 transition-colors"
               >
-                Surya Nagar, Rabindra Sarani, Jalpaiguri, WB, India
+                Surya Nagar, Rabindra Sarani, Siliguri, Jalpaiguri, West Bengal, India
               </a>
             </div>
           </div>

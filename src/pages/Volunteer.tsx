@@ -85,7 +85,7 @@ export default function VolunteerPage() {
             Join Our Community
           </h1>
           <p className="text-slate-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            Become a volunteer with ISHAAN FOUNDATION and work alongside us to deliver health accessibility to remote parts of Jalpaiguri.
+            Become a volunteer with ISHAAN FOUNDATION and work alongside us to deliver health accessibility to remote parts of Siliguri, Jalpaiguri, West Bengal, India.
           </p>
         </div>
       </div>
@@ -191,7 +191,7 @@ export default function VolunteerPage() {
                     value={formData.location}
                     onChange={handleChange}
                     className="w-full bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:bg-white rounded-xl px-4 py-3 text-sm focus:outline-none transition-all"
-                    placeholder="Jalpaiguri, Siliguri, etc."
+                    placeholder="Siliguri, Jalpaiguri, etc."
                   />
                 </div>
               </div>

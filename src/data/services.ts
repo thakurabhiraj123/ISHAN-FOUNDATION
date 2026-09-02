@@ -54,4 +54,10 @@ export const servicesData: ServiceItem[] = [
     description: 'Providing local homestay training, travel assistance, and hospitality skills to empower rural youth.',
     iconName: 'Award',
   },
+  {
+    id: 'support-activities',
+    title: 'Support Activities',
+    description: 'Providing additional community support through local outreach, awareness programs, resource coordination, and assistance for underserved communities.',
+    iconName: 'HeartHandshake',
+  },
 ];
