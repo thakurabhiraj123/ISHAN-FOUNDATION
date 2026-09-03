@@ -55,9 +55,9 @@ export const servicesData: ServiceItem[] = [
     iconName: 'Award',
   },
   {
-    id: 'support-activities',
-    title: 'Support Activities',
-    description: 'Providing additional community support through local outreach, awareness programs, resource coordination, and assistance for underserved communities.',
-    iconName: 'HeartHandshake',
+    id: 'sport-activities',
+    title: 'Sport Activities',
+    description: 'Promoting youth development, physical fitness, teamwork, and athletic talent through grassroots sports events and tournaments.',
+    iconName: 'Trophy',
   },
 ];

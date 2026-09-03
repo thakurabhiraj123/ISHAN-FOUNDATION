@@ -1,4 +1,4 @@
-import { HeartPulse, Heart, Users, Compass, HeartHandshake, CheckCircle2 } from 'lucide-react';
+import { HeartPulse, Heart, Users, Compass, Trophy, CheckCircle2 } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { programsData } from '../data/programs';
 
@@ -13,8 +13,8 @@ function ProgramIcon({ id }: { id: string }) {
       return <Users className="h-6 w-6" />;
     case 'tour-travels':
       return <Compass className="h-6 w-6" />;
-    case 'support-activities':
-      return <HeartHandshake className="h-6 w-6" />;
+    case 'sport-activities':
+      return <Trophy className="h-6 w-6" />;
     default:
       return <HeartPulse className="h-6 w-6" />;
   }

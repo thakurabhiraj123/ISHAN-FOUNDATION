@@ -32,34 +32,99 @@ const activityPhotos = [
   footballPlayersImg,
 ];
 
+// Create 3 repeated sets to allow seamless infinite loop scrolling
+const displayPhotos = [...activityPhotos, ...activityPhotos, ...activityPhotos];
+
 export default function Activities() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const singleSetWidthRef = useRef<number>(0);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isTouching, setIsTouching] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // Update scroll state and active dot indicator
+  // Number of pagination dots
+  const dotsCount = Math.min(8, activityPhotos.length);
+
+  // Update scroll state, handle seamless infinite wrapping, and update active dot indicator
   const handleScroll = useCallback(() => {
     if (!scrollRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-    setCanScrollLeft(scrollLeft > 10);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    const el = scrollRef.current;
+    const { scrollLeft, scrollWidth } = el;
 
-    const itemWidth = clientWidth / (window.innerWidth >= 1024 ? 4 : window.innerWidth >= 640 ? 2 : 1);
-    const index = Math.round(scrollLeft / itemWidth);
-    setActiveIndex(Math.min(index, activityPhotos.length - 1));
+    const firstChild = el.children[0] as HTMLElement | undefined;
+    const secondSetChild = el.children[activityPhotos.length] as HTMLElement | undefined;
+    const setWidth =
+      firstChild && secondSetChild
+        ? secondSetChild.offsetLeft - firstChild.offsetLeft
+        : scrollWidth / 3;
+
+    if (setWidth > 0) {
+      singleSetWidthRef.current = setWidth;
+
+      // Seamless infinite boundary adjustment
+      if (scrollLeft >= setWidth * 2) {
+        el.scrollLeft -= setWidth;
+      } else if (scrollLeft < setWidth * 0.2) {
+        el.scrollLeft += setWidth;
+      }
+
+      const normalized = ((el.scrollLeft % setWidth) + setWidth) % setWidth;
+      const progress = normalized / setWidth;
+      const index = Math.min(
+        Math.round(progress * activityPhotos.length),
+        activityPhotos.length - 1
+      );
+      setActiveIndex(index);
+    }
   }, []);
 
+  // Initialize scroll position to the middle set for bidirectional infinite scrolling
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
+
+    const firstChild = el.children[0] as HTMLElement | undefined;
+    const secondSetChild = el.children[activityPhotos.length] as HTMLElement | undefined;
+    if (firstChild && secondSetChild) {
+      const setWidth = secondSetChild.offsetLeft - firstChild.offsetLeft;
+      singleSetWidthRef.current = setWidth;
+      el.scrollLeft = setWidth;
+    } else {
+      el.scrollLeft = el.scrollWidth / 3;
+    }
+
     el.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => el.removeEventListener('scroll', handleScroll);
+
+    const handleResize = () => {
+      handleScroll();
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      el.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, [handleScroll]);
 
-  // Smooth scroll left / right
+  // Automatic sliding every 3.5 seconds with pause on hover, touch, or lightbox
+  useEffect(() => {
+    if (isHovered || isTouching || lightboxIndex !== null) return;
+
+    const interval = setInterval(() => {
+      if (!scrollRef.current) return;
+      const { clientWidth } = scrollRef.current;
+      scrollRef.current.scrollBy({
+        left: clientWidth * 0.75,
+        behavior: 'smooth',
+      });
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [isHovered, isTouching, lightboxIndex]);
+
+  // Smooth scroll left / right (infinite loop enabled)
   const scrollPrev = () => {
     if (!scrollRef.current) return;
     const { clientWidth } = scrollRef.current;
@@ -74,15 +139,18 @@ export default function Activities() {
 
   const scrollToDot = (idx: number) => {
     if (!scrollRef.current) return;
-    const { clientWidth, scrollWidth } = scrollRef.current;
-    const maxScroll = scrollWidth - clientWidth;
-    const targetScroll = (idx / (dotsCount - 1)) * maxScroll;
-    scrollRef.current.scrollTo({ left: targetScroll, behavior: 'smooth' });
+    const setWidth = singleSetWidthRef.current || scrollRef.current.scrollWidth / 3;
+    const targetOffsetWithinSet = (idx / dotsCount) * setWidth;
+    const currentBaseSet = Math.floor(scrollRef.current.scrollLeft / setWidth) || 1;
+    scrollRef.current.scrollTo({
+      left: currentBaseSet * setWidth + targetOffsetWithinSet,
+      behavior: 'smooth',
+    });
   };
 
   // Lightbox handlers
   const handleOpenLightbox = (index: number) => {
-    setLightboxIndex(index);
+    setLightboxIndex(index % activityPhotos.length);
   };
 
   const handleCloseLightbox = useCallback(() => {
@@ -135,8 +203,6 @@ export default function Activities() {
     };
   }, [lightboxIndex]);
 
-  // Number of pagination dots
-  const dotsCount = Math.min(8, activityPhotos.length);
   const activeDotIndex = Math.min(
     Math.round((activeIndex / (activityPhotos.length - 1)) * (dotsCount - 1)),
     dotsCount - 1
@@ -153,17 +219,18 @@ export default function Activities() {
           </h2>
         </div>
 
-        {/* Carousel Container with Left/Right Arrow Buttons */}
-        <div className="relative group/carousel">
+        {/* Carousel Container with Left/Right Arrow Buttons & Hover/Touch Pause */}
+        <div
+          className="relative group/carousel"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={() => setIsTouching(true)}
+          onTouchEnd={() => setIsTouching(false)}
+        >
           {/* Left Arrow Button */}
           <button
             onClick={scrollPrev}
-            disabled={!canScrollLeft}
-            className={`absolute -left-2 sm:-left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-20 p-2.5 sm:p-3 rounded-full bg-white/95 text-slate-800 shadow-lg border border-slate-200/80 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm ${
-              !canScrollLeft
-                ? 'opacity-0 pointer-events-none'
-                : 'opacity-90 hover:opacity-100 hover:bg-white hover:border-emerald-500/50'
-            }`}
+            className="absolute -left-2 sm:-left-4 lg:-left-5 top-1/2 -translate-y-1/2 z-20 p-2.5 sm:p-3 rounded-full bg-white/95 text-slate-800 shadow-lg border border-slate-200/80 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm opacity-90 hover:opacity-100 hover:bg-white hover:border-emerald-500/50"
             aria-label="Previous photos"
           >
             <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 text-slate-800" />
@@ -175,7 +242,7 @@ export default function Activities() {
             className="flex gap-4 sm:gap-5 lg:gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-2 px-1 scroll-smooth"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {activityPhotos.map((photo, index) => (
+            {displayPhotos.map((photo, index) => (
               <div
                 key={index}
                 onClick={() => handleOpenLightbox(index)}
@@ -184,7 +251,7 @@ export default function Activities() {
                 <div className="w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm group-hover:shadow-xl group-hover:border-emerald-500/40 transition-all duration-300 relative">
                   <img
                     src={photo}
-                    alt={`Activity photo ${index + 1}`}
+                    alt={`Activity photo ${(index % activityPhotos.length) + 1}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out select-none"
                     loading="lazy"
                   />
@@ -197,12 +264,7 @@ export default function Activities() {
           {/* Right Arrow Button */}
           <button
             onClick={scrollNext}
-            disabled={!canScrollRight}
-            className={`absolute -right-2 sm:-right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-20 p-2.5 sm:p-3 rounded-full bg-white/95 text-slate-800 shadow-lg border border-slate-200/80 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm ${
-              !canScrollRight
-                ? 'opacity-0 pointer-events-none'
-                : 'opacity-90 hover:opacity-100 hover:bg-white hover:border-emerald-500/50'
-            }`}
+            className="absolute -right-2 sm:-right-4 lg:-right-5 top-1/2 -translate-y-1/2 z-20 p-2.5 sm:p-3 rounded-full bg-white/95 text-slate-800 shadow-lg border border-slate-200/80 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer backdrop-blur-sm opacity-90 hover:opacity-100 hover:bg-white hover:border-emerald-500/50"
             aria-label="Next photos"
           >
             <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 text-slate-800" />

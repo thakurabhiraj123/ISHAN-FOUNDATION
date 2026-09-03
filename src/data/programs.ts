@@ -83,13 +83,13 @@ export const programsData: ProgramItem[] = [
     },
   },
   {
-    id: 'support-activities',
-    category: 'Community Support',
-    title: 'Support Activities',
-    description: 'Supporting underserved communities through community outreach, awareness initiatives, resource coordination, and assistance during local needs and emergencies.',
+    id: 'sport-activities',
+    category: 'Sports & Youth Development',
+    title: 'Sport Activities',
+    description: 'Promoting youth development, physical fitness, sportsmanship, and talent nurturing through local tournaments, training camps, and community sports events.',
     details: [
-      'Community outreach, awareness & support programs',
-      'Resource coordination and emergency assistance',
+      'Organizing community football tournaments and youth athletic meets',
+      'Distributing sports kits & encouraging active, healthy youth lifestyles',
     ],
     themeColor: {
       badge: 'bg-amber-50 text-amber-700 border-amber-200/60',
